@@ -3,15 +3,15 @@ const notes = require('./notes.js'),
 	yargs = require('yargs').argv,
 	os = require('os');
 console.log(`Starting app.js`);
-const filename = 'greetings.txt';
+//const filename = 'greetings.txt';
 const text = `Hello dear ${os.userInfo().username}`;
 
-//console.log(`${text}. `);
+console.log(`${text}. `);
 
 
 //notes.appendToFile(filename, text);
 
-//console.log('isString: ' + _.isString('mana'));
+console.log('isString: ' + _.isString('mana'));
 //console.log('lodash uniq: ' + _.uniq(['mana', 'bede', 'mana', 1, 2, 3, 1]));
 
 //====\
@@ -21,15 +21,15 @@ const text = `Hello dear ${os.userInfo().username}`;
 console.log('yargs:' + yargs);
 switch (yargs._[0]) {
 	case 'add':
-		//notes.add(argv.title, argv.body);
+		notes.addNote(yargs.title, yargs.body);
 		//console.log(`${argv.title}, ${argv.body}`);
-		console.log(yargs.x, yargs.x);
+		console.log(yargs.title, yargs.body);
 
 		break;
 	case 'read':
 		notes.read();
 		break;
-	case 'list':
+	case 'getAllNotes':
 		notes.list();
 		break;
 	case 'delete':

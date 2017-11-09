@@ -3,10 +3,30 @@ const fs = require('fs');
 console.log(`Starting notes.js`);
 
 
-const add = (title, body) => {
+const addNote = (title, body) => {
 	console.log(`adding: ${title}: ${body}`);
+	let notes = [];
+	const note = {
+		title,
+		body
+	};
+
+	try {
+		notes = JSON.parse(fs.readFileSync('notes-data.json'));
+	} catch (err) {
+		console.log('something went wrong');
+	}
+//catch duplicates
+	const duplicateNotes = notes.filter(note => note.title === title);
+	if (duplicateNotes.length === 0) {
+		notes.push(note);
+	} else {
+		console.log('Title already exist. Note not saved!');
+	}
+	fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+
 };
-const list = () => {
+const getAllNotes = () => {
 	console.log('listing...');
 };
 
@@ -28,9 +48,9 @@ module.exports = {
 		});
 	},
 	
-	add,
+	addNote,
 
-	list,
+	getAllNotes,
 
 	remove,
 
