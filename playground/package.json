@@ -1,0 +1,20 @@
+{
+  "name": "notes-node",
+  "version": "1.0.0",
+  "description": "Node tutorial from Udemy",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ngaruko/node-tutorial.git"
+  },
+  "author": "Bede Ngaruko",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "request": "^2.83.0",
+    "yargs": "^10.0.3"
+  }
+}
