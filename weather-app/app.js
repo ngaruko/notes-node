@@ -21,8 +21,11 @@ request({
 	json:true
 },(error, response, body)=>{
 	if(error){
-		console.log('Error occured');
-	} else {
+		console.log('Error occured...Unable to connect to Google services' + error.message);
+	} else if (body.status==='ZERO_RESULTS'){
+		console.log('Unable to find address');
+	}else if(body.status==='OK'){
+
 		console.log('Response: ' + response.statusCode);
 console.log(`Address received: ${body.results[0].formatted_address}`);
 //console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
