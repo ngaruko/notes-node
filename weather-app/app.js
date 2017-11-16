@@ -22,7 +22,16 @@ geocode.geocodeAddress(argv.address, (errorMessage, results)=>{
 		console.log(JSON.stringify(results, undefined, 2));
 	}
 });
+
+geocode.forecast((errorMessage, results)=>{
+	if(errorMessage){
+		console.log(errorMessage);
+	}else{
+		console.log(JSON.stringify(results, undefined, 2));
+	}
+});
 //console.log(`Address received: ${body.results[0].formatted_address}`);
 //console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
 //console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
 
+//4bdc7f0bc612be8ecc8cfca178c7d0c2
